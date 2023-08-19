@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
 
-class CustromTextformField extends StatefulWidget {
+class CustomTextFormField extends StatefulWidget {
   final hintText;
   final textInputAction;
   final validator;
   final obscureText;
   final obscuringCharacter;
   final suffixIcon;
+  final controller;
 
-  const CustromTextformField(
+  const CustomTextFormField(
       {super.key,
       required this.hintText,
       required this.textInputAction,
       required this.validator,
       this.obscureText,
       this.obscuringCharacter,
-      this.suffixIcon});
+      this.suffixIcon, this.controller});
 
   @override
-  State<CustromTextformField> createState() => _CustromTextformFieldState();
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
 
-class _CustromTextformFieldState extends State<CustromTextformField> {
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: TextFormField(
+        controller:  widget.controller,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(13),

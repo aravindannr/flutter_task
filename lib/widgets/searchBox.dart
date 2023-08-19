@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Search_Box extends StatelessWidget {
   final controller;
 
+
   const Search_Box({super.key, this.controller});
 
   @override
@@ -16,7 +17,7 @@ class Search_Box extends StatelessWidget {
         ),
         child: TextField(
           controller: controller,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
               hintText: 'Search',
               border: InputBorder.none,
               suffixIcon: Icon(
