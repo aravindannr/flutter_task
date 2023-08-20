@@ -28,6 +28,11 @@ class _HomePageState extends State<HomePage> {
   ];
   TextEditingController searchController = TextEditingController();
   List<String> filteredItems = [];
+  @override
+  void initState() {
+    super.initState();
+    filteredItems = items;
+  }
 
   void _filterItems(String query) {
     setState(() {
