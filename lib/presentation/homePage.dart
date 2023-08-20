@@ -1,8 +1,7 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/drawer.dart';
 import '../widgets/gridTile.dart';
+import '../widgets/navigationBar.dart';
 import '../widgets/searchBox.dart';
 
 class HomePage extends StatefulWidget {
@@ -46,28 +45,7 @@ class _HomePageState extends State<HomePage> {
           Expanded(child: ProductTile())
         ],
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        color: Color(0xFF3B5794),
-        items: [
-          Icon(
-            Icons.home,
-            size: 30,
-          ),
-          Icon(
-            Icons.favorite,
-            size: 30,
-          ),
-          Icon(
-            Icons.shopping_cart,
-            size: 30,
-          ),
-          Icon(
-            Icons.person,
-            size: 30,
-          )
-        ],
-      ),
+      bottomNavigationBar:CurvednavigationBar()
     );
   }
 }

@@ -13,9 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final formkey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passController = TextEditingController();
+  var formkey = GlobalKey<FormState>();
   bool showpass = true;
 
   @override
@@ -44,18 +42,13 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 25),
               CustomTextFormField(
-                controller: emailController,
                 hintText: "Enter your username",
                 textInputAction: TextInputAction.next,
-                validator: (value) {
-                  if (value.isEmpty || !value.contains('@')) {
+                validator: (uname) {
+                  if (uname!.isEmpty || !uname.contains('@')) {
                     return 'Enter a valid UserName';
-                  }
-                  bool emailValid =
-                      RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
-                          .hasMatch(value!);
-                  if (emailValid) {
-                    return "enter valid UserName";
+                  } else {
+                    return null;
                   }
                 },
               ),
@@ -63,7 +56,6 @@ class _LoginPageState extends State<LoginPage> {
                 height: 25,
               ),
               CustomTextFormField(
-                controller: passController,
                 hintText: 'Enter your password',
                 textInputAction: TextInputAction.done,
                 obscureText: showpass,
@@ -82,8 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                       ? Icons.visibility_off
                       : Icons.visibility),
                 ),
-                validator: (value) {
-                  if (value!.isEmpty || value.length < 6) {
+                validator: (password) {
+                  if (password!.isEmpty || password.length < 6) {
                     return 'Enter a valid password , length  should be greater than 6';
                   } else {
                     return null;
@@ -106,10 +98,12 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 15),
               MyButton(
                 Ontap: () {
-                  if (formkey.currentState!.validate()) {
-                    print("success");
-                    emailController.clear();
-                    passController.clear();
+                  final valid = formkey.currentState!.validate();
+                  if (valid) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  } else {
+                    return null;
                   }
                 },
                 text: 'Login',

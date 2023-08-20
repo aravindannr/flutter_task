@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
       routes: {
     "home": (context) => HomePage(),
