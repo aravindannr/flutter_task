@@ -118,7 +118,7 @@ class _ProductTileState extends State<ProductTile> {
                 margin: EdgeInsets.only(bottom: 8),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  widget.filteredItems[index],
+                  items[index],
                   style: TextStyle(
                       fontSize: 18,
                       color: Colors.black45,

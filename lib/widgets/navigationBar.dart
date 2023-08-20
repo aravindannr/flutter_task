@@ -9,7 +9,7 @@ class CurvednavigationBar extends StatefulWidget {
 }
 
 class _CurvednavigationBarState extends State<CurvednavigationBar> {
-  int index = 0;
+  int selevtedIndex = 0;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   @override
@@ -17,7 +17,7 @@ class _CurvednavigationBarState extends State<CurvednavigationBar> {
     return CurvedNavigationBar(
       onTap:(index) {
         setState(() {
-          index = index;
+          selevtedIndex = index;
         });
       },
       key: _bottomNavigationKey,
