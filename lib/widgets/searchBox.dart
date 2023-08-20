@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Search_Box extends StatefulWidget {
+  final onChanged;
+  final controller;
+  final onTap;
 
-  const Search_Box({super.key});
+  const Search_Box({super.key, this.onChanged, this.controller, this.onTap});
 
   @override
   State<Search_Box> createState() => _Search_BoxState();
 }
 
 class _Search_BoxState extends State<Search_Box> {
-  late  TextEditingController searchTextController;
-  @override
-  void initState() {
-    searchTextController = TextEditingController();
-    super.initState();
-  }
-  @override
-  void dispose() {
-    searchTextController.dispose();
-    super.dispose();
-  }
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,17 +24,14 @@ class _Search_BoxState extends State<Search_Box> {
           color: Colors.black12,
         ),
         child: TextField(
-          controller: searchTextController,
-          decoration:  InputDecoration(
+          onChanged:widget.onChanged,
+          controller: widget.controller,
+          decoration: InputDecoration(
               hintText: 'Search',
               border: InputBorder.none,
-              prefixIcon: Icon(Icons.search,color: Colors.redAccent,),
+              prefixIcon: Icon(Icons.search, color: Colors.redAccent,),
               suffixIcon: GestureDetector(
-                onTap: (){
-                  setState(() {
-                    searchTextController.clear();
-                  });
-                },
+                onTap: widget.onTap,
                 child: const Icon(
                   Icons.clear,
                   color: Colors.black54,

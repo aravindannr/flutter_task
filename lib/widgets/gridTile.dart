@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProductTile extends StatefulWidget {
-  const ProductTile({super.key});
+  final List<String> filteredItems;
+  const ProductTile({super.key, required this.filteredItems});
 
   @override
   State<ProductTile> createState() => _ProductTileState();
@@ -69,7 +70,7 @@ class _ProductTileState extends State<ProductTile> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: imagePath.length,
+      itemCount: widget.filteredItems.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, childAspectRatio: 0.75),
       itemBuilder: (BuildContext context, int index) {
@@ -117,7 +118,7 @@ class _ProductTileState extends State<ProductTile> {
                 margin: EdgeInsets.only(bottom: 8),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  items[index],
+                  widget.filteredItems[index],
                   style: TextStyle(
                       fontSize: 18,
                       color: Colors.black45,

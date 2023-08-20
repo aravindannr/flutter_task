@@ -12,6 +12,34 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> items = [
+    "iPhone 14 Plus",
+    "Redmi 8",
+    "Realme 11 Pro 5G",
+    "Vivo Y100",
+    "Oppo A55",
+    "Samsung Galaxy M14",
+    "iPhone 14 Plus",
+    "Redmi 8",
+    "Realme 11 Pro 5G",
+    "Vivo Y100",
+    "Oppo A55",
+    "Samsung Galaxy M14",
+  ];
+  TextEditingController searchController = TextEditingController();
+  List<String> filteredItems = [];
+
+  void _filterItems(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredItems = items;
+      } else {
+        filteredItems = items
+            .where((item) => item.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +68,17 @@ class _HomePageState extends State<HomePage> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Search_Box(),
+            child: Search_Box(
+              onTap: () {
+                setState(() {
+                  searchController.clear();
+                });
+              },
+              controller: searchController,
+              onChanged: _filterItems,
+            ),
           ),
-          Expanded(child: ProductTile())
+          Expanded(child: ProductTile(filteredItems: filteredItems,))
         ],
       ),
       bottomNavigationBar:CurvednavigationBar()

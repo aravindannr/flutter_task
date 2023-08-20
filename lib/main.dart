@@ -14,10 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: HomePage(),
       debugShowCheckedModeBanner: false,
-      routes: {
-    "home": (context) => HomePage(),
-    "cart": (context) => CartPage(),
-    },
     );
   }
 }
