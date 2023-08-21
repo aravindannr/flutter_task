@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../widgets/Button.dart';
 import '../widgets/loginContainer.dart';
-import '../widgets/textformField.dart';
 import 'homePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -41,46 +40,77 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(fontSize: 15, color: Colors.black45),
               ),
               SizedBox(height: 25),
-              CustomTextFormField(
-                hintText: "Enter your username",
-                textInputAction: TextInputAction.next,
-                validator: (uname) {
-                  if (uname!.isEmpty || !uname.contains('@')) {
-                    return 'Enter a valid UserName';
-                  } else {
-                    return null;
-                  }
-                },
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: TextFormField(
+                 decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(13),
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText:"Enter your Username",
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
+                  textInputAction: TextInputAction.next,
+                  validator: (uname) {
+                    if (uname!.isEmpty || !uname.contains('@')) {
+                      return 'Enter a valid UserName';
+                    } else {
+                      return null;
+                    }
+                  },
+                ),
               ),
               SizedBox(
                 height: 25,
               ),
-              CustomTextFormField(
-                hintText: 'Enter your password',
-                textInputAction: TextInputAction.done,
-                obscureText: showpass,
-                obscuringCharacter: "*",
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      if (showpass) {
-                        showpass = false;
-                      } else {
-                        showpass = true;
-                      }
-                    });
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: TextFormField(
+                 
+                  textInputAction: TextInputAction.done,
+                  obscureText: showpass,
+                  obscuringCharacter: "*",
+                  decoration: InputDecoration(
+                   
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(13),
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: "Enter your password",
+                        hintStyle: TextStyle(color: Colors.grey),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        if (showpass) {
+                          showpass = false;
+                        } else {
+                          showpass = true;
+                        }
+                      });
+                    },
+                    icon: Icon(showpass == true
+                        ? Icons.visibility_off
+                        : Icons.visibility),
+                  ),),
+                  validator: (password) {
+                    if (password!.isEmpty || password.length < 6) {
+                      return 'Enter a valid password , length  should be greater than 6';
+                    } else {
+                      return null;
+                    }
                   },
-                  icon: Icon(showpass == true
-                      ? Icons.visibility_off
-                      : Icons.visibility),
                 ),
-                validator: (password) {
-                  if (password!.isEmpty || password.length < 6) {
-                    return 'Enter a valid password , length  should be greater than 6';
-                  } else {
-                    return null;
-                  }
-                },
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),

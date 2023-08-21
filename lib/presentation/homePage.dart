@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
     filteredItems = items;
   }
 
+
   void _filterItems(String query) {
     setState(() {
       if (query.isEmpty) {
@@ -42,7 +43,9 @@ class _HomePageState extends State<HomePage> {
         filteredItems = items
             .where((item) => item.toLowerCase().contains(query.toLowerCase()))
             .toList();
+  
       }
+      print(filteredItems);
     });
   }
   @override
