@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/presentation/firstPage.dart';
-import 'package:flutter_task/presentation/homePage.dart';
-import 'package:flutter_task/presentation/loginPage.dart';
-
+import 'package:flutter_task/presentation/introPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: IntroPage(),
       debugShowCheckedModeBanner: false,
     );
   }
