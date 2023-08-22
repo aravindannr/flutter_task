@@ -54,42 +54,42 @@ class _FirstPageState extends State<FirstPage> {
       "name": "Realme narzo"
     },
     {
-      "id": 1,
+      "id": 7,
       "image": "assets/images/81eoabezOsL._AC_UF894,1000_QL80_.jpg",
       "price": 38000,
       "offers": "-12%",
       "name": "Realme 11 pro 5G"
     },
     {
-      "id": 2,
+      "id": 8,
       "image": "assets/images/vivo y100.jpeg",
       "price": 10000,
       "offers": "-10%",
       "name": "Redmi 8"
     },
     {
-      "id": 3,
+      "id": 9,
       "image": "assets/images/vivo y100.jpeg",
       "price": 19000,
       "offers": "-12%",
       "name": "Vivo Y100"
     },
     {
-      "id": 4,
+      "id": 10,
       "image": "assets/images/71Y9xMZTBDL.jpg",
       "price": 25000,
       "offers": "-5%",
       "name": "Samsung A51"
     },
     {
-      "id": 5,
+      "id": 11,
       "image": "assets/images/1138293-xiaomi-redmi-note-8.jpg",
       "price": 30000,
       "offers": "-3%",
       "name": "Redmi note 8"
     },
     {
-      "id": 6,
+      "id": 12,
       "image": "assets/images/realmeNarzo30.jpg",
       "price": 14000,
       "offers": "-8%",
