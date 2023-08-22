@@ -77,7 +77,6 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: showpass,
                   obscuringCharacter: "*",
                   decoration: InputDecoration(
-                   
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(13),
                           borderSide: BorderSide(color: Colors.grey),

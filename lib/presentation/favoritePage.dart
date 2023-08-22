@@ -5,7 +5,6 @@ class FavoritesPage extends StatelessWidget {
     'Product A',
     'Product B',
     'Product C',
-    // Add more favorite items...
   ];
 
   @override
