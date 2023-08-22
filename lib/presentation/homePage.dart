@@ -5,9 +5,6 @@ import 'package:flutter_task/presentation/favoritePage.dart';
 import 'package:flutter_task/presentation/firstPage.dart';
 import 'package:flutter_task/presentation/profilePage.dart';
 import '../widgets/drawer.dart';
-import '../widgets/gridTile.dart';
-import '../widgets/navigationBar.dart';
-import '../widgets/searchBox.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List screen =  [
-    homePage2(),
+    FirstPage(),
    FavoritesPage(),
     Cartpage(),
     ProfilePage(),
