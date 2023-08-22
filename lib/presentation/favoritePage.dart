@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 
-class FavoritesPage extends StatelessWidget {
-  final List<String> favoriteItems = [
-    'Product A',
-    'Product B',
-    'Product C',
-  ];
+class FavoritesPage extends StatefulWidget {
+  const FavoritesPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-      body: ListView.builder(
-          itemCount: favoriteItems.length,
-          itemBuilder: (context, index) {
-            final item = favoriteItems[index];
-            return ListTile(
-              title: Text(item),
-              trailing: Icon(Icons.favorite, color: Colors.red),
-            );
-          },
+  State<FavoritesPage> createState() => _FavoritesPageState();
+}
 
+class _FavoritesPageState extends State<FavoritesPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text(
+          "favourite Page",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
