@@ -1,4 +1,9 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_task/presentation/cartPage.dart';
+import 'package:flutter_task/presentation/favoritePage.dart';
+import 'package:flutter_task/presentation/firstPage.dart';
+import 'package:flutter_task/presentation/profilePage.dart';
 import '../widgets/drawer.dart';
 import '../widgets/gridTile.dart';
 import '../widgets/navigationBar.dart';
@@ -12,42 +17,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> items = [
-    "iPhone 14 Plus",
-    "Redmi 8",
-    "Realme 11 Pro 5G",
-    "Vivo Y100",
-    "Oppo A55",
-    "Samsung Galaxy M14",
-    "iPhone 14 Plus",
-    "Redmi 8",
-    "Realme 11 Pro 5G",
-    "Vivo Y100",
-    "Oppo A55",
-    "Samsung Galaxy M14",
+  List screen =  [
+    homePage2(),
+   FavoritesPage(),
+    Cartpage(),
+    ProfilePage(),
   ];
-  TextEditingController searchController = TextEditingController();
-  List<String> filteredItems = [];
-  @override
-  void initState() {
-    super.initState();
-    filteredItems = items;
-  }
-
-
-  void _filterItems(String query) {
-    setState(() {
-      if (query.isEmpty) {
-        filteredItems = items;
-      } else {
-        filteredItems = items
-            .where((item) => item.toLowerCase().contains(query.toLowerCase()))
-            .toList();
-  
-      }
-      print(filteredItems);
-    });
-  }
+  int Index = 0;
+  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,24 +49,40 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       drawer: AppDrawer(),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Search_Box(
-              onTap: () {
-                setState(() {
-                  searchController.clear();
-                });
-              },
-              controller: searchController,
-              onChanged: _filterItems,
-            ),
+
+      body:screen[Index],
+      bottomNavigationBar:CurvedNavigationBar(
+        index: Index,
+        onTap:(tapIndex) {
+          setState(() {
+            Index = tapIndex;
+          });
+        },
+        key: _bottomNavigationKey,
+        height: 65,
+        backgroundColor: Colors.transparent,
+        animationDuration: Duration(milliseconds: 400),
+        color: Color(0xFF3B5794),
+        items: [
+          Icon(
+            Icons.home,
+            size: 30,
           ),
-          Expanded(child: ProductTile(filteredItems: filteredItems,))
+          Icon(
+            Icons.favorite,
+            size: 30,
+          ),
+          Icon(
+            Icons.shopping_cart,
+            size: 30,
+          ),
+          Icon(
+            Icons.person,
+            size: 30,
+          )
         ],
-      ),
-      bottomNavigationBar:CurvednavigationBar()
+
+      )
     );
   }
 }
